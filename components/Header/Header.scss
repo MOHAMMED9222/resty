@@ -1,0 +1,13 @@
+$backgroundColor: rgba(253,181,45,1);
+
+
+header {
+  background: $backgroundColor;
+  padding: 1em 3em;
+  margin: 0;
+  h1 {
+    color: rgba(170,52,52,1);
+    margin: auto;
+    display: flex;
+    width: 0px;  }
+}
