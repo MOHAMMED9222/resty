@@ -1,0 +1,20 @@
+$backgroundColor: rgb(170,52,52);
+
+
+section {
+  background: $backgroundColor;
+  padding: 1em 3em;
+  margin: 0;
+  color: white;
+}
+
+.__json-pretty__  {
+ color: hotpink;
+}
+.__json-key__{
+color: orange;
+}
+
+.__json-string__ {
+color: yellow;
+}
