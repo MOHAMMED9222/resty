@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import './Form.scss';
 
 function Form(props) {
-const [url, setUrl] = useState('')
-const [textArea, setTextArea] = useState('')
+const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
+const [data, setData] = useState('')
 const [method, setMethod] = useState('GET')
 
 
@@ -12,9 +12,6 @@ const handleClick = e => {
   
   setMethod(e.target.innerText)
 
-  if (method === 'POST' || method === 'PUT') {
-
-  }
 }; 
 
  const handleSubmit = e => {
@@ -22,7 +19,7 @@ const handleClick = e => {
     const formData = {
       method: method,
       url: url,
-      textArea: textArea,
+      data: data,
     };
     props.handleApiCall(formData);
   }
@@ -33,8 +30,8 @@ const handleClick = e => {
         <form onSubmit={handleSubmit}>
           <label >
             <span>URL: </span>
-            <input name='url' type='text' onChange={(e) => setUrl(e.target.value)}/>
-            <button type="submit">GO!</button>
+            <input data-testid="url" name='url' type='text' onChange={(e) => setUrl(e.target.value)}/>
+            <button data-testid="button" type="submit">GO!</button>
           </label>
           <label className="methods">
             <span data-testid="get" id="get" onClick={handleClick} style={{backgroundColor: method === 'GET' ? 'red' : 'white'}}>GET</span>
@@ -42,8 +39,8 @@ const handleClick = e => {
             <span data-testid="put" id="put" onClick={handleClick} style={{backgroundColor: method === 'PUT' ? 'red' : 'white'}}>PUT</span>
             <span data-testid="delete" id="delete" onClick={handleClick} style={{backgroundColor: method === 'DELETE' ? 'red' : 'white'}}>DELETE</span>
           </label>
-          {method === "POST" &&  <textarea onChange={(e) => setTextArea(e.target.value)}/>}
-          {method === "PUT" &&  <textarea onChange={(e) => setTextArea(e.target.value)}/>}
+          {method === "POST" &&  <textarea onChange={(e) => setData(e.target.value)}/>}
+          {method === "PUT" &&  <textarea onChange={(e) => setData(e.target.value)}/>}
         </form>
       </>
     );

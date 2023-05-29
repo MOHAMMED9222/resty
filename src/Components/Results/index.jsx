@@ -1,6 +1,6 @@
 import React from 'react';
 import JSONPretty from 'react-json-pretty'
-import './result.scss';
+import './results.scss';
 
 function Results(props) {
  
